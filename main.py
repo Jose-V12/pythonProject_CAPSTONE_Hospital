@@ -43,6 +43,24 @@ years_experience VARCHAR(20),
 hire_date Date
 );
 """
+create_salary_table = """
+CREATE TABLE salary (
+employee_id INT PRIMARY KEY,
+first_name VARCHAR(40) NOT NULL,
+last_name VARCHAR(40) NOT NULL,
+salary VARCHAR(10),
+hire_date Date
+);
+ """
+create_department_table = """
+CREATE TABLE department (
+employee_id INT PRIMARY KEY,
+surgery VARCHAR(40) NOT NULL,
+burn_unit VARCHAR(40) NOT NULL,
+urgent_care VARCHAR(40) NOT NULL
+);
+"""
 
 connection = create_server_connection("localhost", "root", "student", "hospital")
-execute_query(connection, create_employee_table)
+execute_query(connection, create_salary_table)
+execute_query(connection, create_department_table)
